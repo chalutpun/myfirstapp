@@ -1,0 +1,29 @@
+<div class="container-fluid" table-responsive>
+    <hr />
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td width="20%">SKU</td>
+                <td width="25%">Title</td>
+                <td width="10%">On order</td>
+                <td width="10%">Due</td>
+                <td width="10%">Stock level</td>
+                <td width="15%">Location</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="x in data.lowstockdata.data">
+                <td>{{x.SKU}}</td>
+                <td><a style="cursor: pointer" ng-click="openProduct(x)">{{x.ProductTitle}}</a></td>
+                <td>{{x.OnOrder}}</td>
+                <td>{{x.Due}}</td>
+                <td>{{x.StockLevel}}</td>
+                <td>{{x.Location}}</td>
+            <tr>
+        </tbody>
+    </table>
+</div>
+<ul uib-pagination total-items="data.lowstockdata.totalitems" 
+ max-size="8"
+ ng-model="data.lowstockdata.currentpage" 
+ ng-change="pageChanged()"></ul>
